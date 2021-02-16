@@ -26,7 +26,7 @@ function filterData() {
   filteredData = data.filter(sighting => sighting.datetime === inputValue)
 
   // Clears Table Body
-  tableBody.html = "";
+  tableBody.html("");
   
   // Re-populates table with filtered data
   filteredData.forEach((dataRow) => {
