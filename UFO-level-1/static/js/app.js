@@ -23,7 +23,7 @@ function filterData() {
   console.log(inputValue);
 
   // Filters data according to date
-  filteredData = data.filter()
+  filteredData = data.filter(sighting => sighting.datetime === inputValue)
 
   // Clears Table Body
   tableBody.html = "";
