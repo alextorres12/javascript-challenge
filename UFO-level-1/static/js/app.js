@@ -1,6 +1,7 @@
 // from data.js
 var tableData = data;
 console.log("data :: ", data);
+const tableBody = d3.select("#ufo-table tbody");
 // YOUR CODE HERE!
 // Select the button
 var button = d3.select("#filter-btn");
@@ -17,14 +18,26 @@ function filterData() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
 
+  // Gets value from input field
   var inputValue = d3.select("#datetime").property("value");
+  console.log(inputValue);
 
-  console.log("you clicked the button");
-  console.log("you entered: ", inputValue);
+  // Filters data according to date
+  filteredData = data.filter()
+
+  // Clears Table Body
+  tableBody.html = "";
+  
+  // Re-populates table with filtered data
+  filteredData.forEach((dataRow) => {
+    let tableRow = tableBody.append("tr");
+    cols.forEach((col) => tableRow.append("th").text(dataRow[col2Data[col]]));
+  });
+
 };
-const tableBody = d3.select("#ufo-table tbody");
 
-// tableBody.html = "";
+
+
 let tableRow = tableBody.append("tr");
 const col2Data = {
   Date: "datetime",
